@@ -19,16 +19,13 @@ class Array
   end
 
   def my_transpose
-    result = Array.new()
+    result = Array.new(self.length) { Array.new(self.length) }
 
     self.each_with_index do |row, i|
-      collector = []
       row.each_with_index do |ele, j|
-        collector << row[i]
+        result[i][j] = self[j][i]
       end
-      result << collector
     end
-    
     result
   end
 end
