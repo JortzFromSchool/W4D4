@@ -4,7 +4,7 @@ require "deck.rb"
 
 describe Card do
   it "initializes the Card with Suit and Integer value" do
-    card = Card.new(:hearts, 5)
+    card = Card.new(:hearts, 5, 3)
     expect(card.suit).to eq(:hearts)
     expect(card.value).to eq(5)
   end
@@ -16,14 +16,16 @@ describe Deck do
 
     expect(deck.array.size).to eq(52)
     deck.array.each do |card|
-      expect(card.is_a?(Card))
+      expect(card.is_a?(Card)).to be true
     end
 
   end
 
 
   it "shuffles the cards in the array" do
-
+    deck = Deck.new
+    expect(deck.array).to eq(deck.array.sort)
+    expect(deck.array.sort).to not_eq(deck.shuffle)
   end
 
   it "all 52 cards are unique" do
