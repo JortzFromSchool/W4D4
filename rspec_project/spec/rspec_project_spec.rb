@@ -42,3 +42,12 @@ describe Stock do
     end
   end
 end
+
+describe Tower do
+  subject(:tower) { Tower.new }
+  describe "#move" do
+    it "moves the top disc into the specified tower" do
+      
+    end
+  end
+end
