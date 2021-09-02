@@ -1,5 +1,6 @@
 require "rspec_project.rb"
 require "stock.rb"
+require "towers.rb"
 
 # structure: describe, context, it
 # variables: subject, let
@@ -43,11 +44,24 @@ describe Stock do
   end
 end
 
-describe Tower do
-  subject(:tower) { Tower.new }
+describe Towers do
+  subject(:tower) { Towers.new }
   describe "#move" do
+    # before(:each) do
+    # end
     it "moves the top disc into the specified tower" do
-      
+      tower.move ([0, 1])
+      tower.move([1, 2])
+      expect(tower.left).to eq([3, 2])
+      expect(tower.middle).to eq([])
+      expect(tower.right).to eq([1])
+    end
+
+    it "will not accept invalid moves" do
+      expect {tower.move([0, 0])}.to raise_error("Can't move to same tower")
+      expect {tower.move([1, 2])}.to raise_error("Can't move from empty tower")
+      expect {tower.move([-1, 2])}.to raise_error("Invalid tower selection")
     end
   end
+
 end
