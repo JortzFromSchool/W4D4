@@ -32,9 +32,16 @@ class Hand
     def royal_flush?
         #all same suit?
         if @cards.all? {|card| card[0].suit == card.suit }
-            
+            # make hash with default values of 0
+            # royal flush -> specific
+            # go through each card and add 1 to their value
+            # check if key of 1 = 1
+            # check key of 10 = 1 -> 1 10 card
+            # same for 11, which is Jack
+            # same for 12, 13
+            # if all are true, then we have royal flush
         else
-            return false    
+            return false
         end
 
 
