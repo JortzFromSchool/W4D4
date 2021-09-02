@@ -55,9 +55,13 @@ end
 describe Hand do
   let(:deck) { double("deck") }
   subject(:hand) { Hand.new(deck) }
+  let(:card) { double("card") }
 
   describe "#initialize" do
     it "grab 5 instances of card from deck" do
+      allow(deck).to receive(:draw).and_return(card)
+
+      expect(hand.cards.length).to eq(5)
     end
   end
 end
