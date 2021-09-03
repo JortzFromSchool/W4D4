@@ -64,4 +64,19 @@ describe Towers do
     end
   end
 
+  describe "#won?" do
+    it "should return true if right tower is [3, 2, 1]" do
+      expect(tower.won?).to be false
+      tower.move([0,2])
+      tower.move([0,1])
+      tower.move([2,1])
+      tower.move([0,2])
+      tower.move([1,0])
+      tower.move([1,2])
+      tower.move([0,2])
+      expect(tower.right).to eq([3,2,1])
+      expect(tower.won?).to be true
+    end
+  end
+
 end

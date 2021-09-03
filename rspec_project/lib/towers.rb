@@ -49,4 +49,8 @@ class Towers
         response << gets.chomp
         response
     end
+
+    def won?
+        @right == [3,2,1]
+    end
 end

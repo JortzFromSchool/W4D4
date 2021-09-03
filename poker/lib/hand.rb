@@ -19,6 +19,7 @@ class Hand
         # check royal flush
         if self.royal_flush?
             return 21
+        end
         #elsif
         # 19
         #check if straight flush

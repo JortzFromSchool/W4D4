@@ -60,7 +60,6 @@ describe Hand do
   describe "#initialize" do
     it "grab 5 instances of card from deck" do
       allow(deck).to receive(:draw).and_return(card)
-
       expect(hand.cards.length).to eq(5)
     end
   end
